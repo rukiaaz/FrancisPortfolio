@@ -412,92 +412,6 @@ h1 {
   transform: rotate(180deg);
 }
 
-/* Case Study */
-.case-study {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: 15px;
-  position: relative;
-  z-index: 5;
-}
-
-.case-study.open {
-  max-height: 1500px;
-}
-
-.case-content {
-  padding-top: 25px;
-  border-top: 1px solid var(--line);
-  position: relative;
-  z-index: 5;
-}
-
-.case-content p {
-  text-align: left;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-/* SMALLER CASE IMAGE */
-.case-image {
-  margin: 20px 0;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  max-width: 550px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.case-image img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.case-image img:hover {
-  transform: scale(1.02);
-}
-
-.case-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-top: 25px;
-  position: relative;
-  z-index: 5;
-}
-
-.feature {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 18px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  transition: transform 0.3s ease;
-}
-
-.feature:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-}
-
-.feature h4 {
-  font-size: 1.05rem;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.feature p {
-  font-size: 0.85rem;
-  margin: 0;
-  color: var(--muted);
-}
-
 /* Slider Navigation */
 .slider-nav {
   position: absolute;
@@ -1035,11 +949,6 @@ footer {
     height: 180px;
   }
   
-  .case-image {
-    max-width: 100%;
-    max-height: 250px;
-  }
-  
   h1 {
     font-size: 2.5rem;
   }
@@ -1054,10 +963,6 @@ footer {
   
   #projects {
     padding: 80px 0;
-  }
-  
-  .case-features {
-    grid-template-columns: 1fr;
   }
   
   .modal-title {
@@ -1118,18 +1023,6 @@ footer {
   
   .project-thumbnail img {
     height: 160px;
-  }
-  
-  .case-image img {
-    max-height: 200px;
-  }
-  
-  .case-features {
-    gap: 12px;
-  }
-  
-  .feature {
-    padding: 15px;
   }
   
   .modal-overlay {
@@ -1342,16 +1235,54 @@ footer {
             </div>
           </div>
         </div>
+        
+        <!-- Slide 4: Minecraft Tierlist -->
+        <div class="slide">
+          <div class="card">
+            <h2>Minecraft Tierlist</h2>
+            <p>Interactive Minecraft character tierlist with Discord bot integration for community voting.</p>
+            
+            <div class="project-thumbnail">
+              <img src="img/tierlist.png" 
+                   alt="Minecraft tierlist interface showing character rankings" 
+                   loading="lazy">
+            </div>
+            
+            <div class="card-tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Discord API</span>
+              <span class="tag">Node.js</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://hybridtierlist.vercel.app/" 
+                 class="btn btn-primary" 
+                 target="_blank" 
+                 rel="noopener noreferrer">
+                Visit Live Site
+              </a>
+              
+              <button class="expand-btn" onclick="openModal(3)" aria-expanded="false">
+                View case study
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
       
       <div class="slider-dots" id="sliderDots">
         <button class="slider-dot active" aria-label="Go to project 1"></button>
         <button class="slider-dot" aria-label="Go to project 2"></button>
         <button class="slider-dot" aria-label="Go to project 3"></button>
+        <button class="slider-dot" aria-label="Go to project 4"></button>
       </div>
       
       <div class="project-counter">
-        <span id="currentSlide">1</span> of <span id="totalSlides">3</span>
+        <span id="currentSlide">1</span> of <span id="totalSlides">4</span>
       </div>
     </div>
   </section>
@@ -1581,6 +1512,38 @@ const projects = [
     ],
     results: "Achieved perfect Lighthouse scores (100/100). Page load time under 1 second on 3G networks. 40% increase in organic traffic through improved SEO.",
     liveLink: "#"
+  },
+  {
+    title: "Minecraft Tierlist",
+    tags: ["HTML/CSS", "JavaScript", "Discord API", "Node.js", "Express", "Socket.io"],
+    heroImage: "img/tierlist.png",
+    overview: "An interactive tierlist platform for Minecraft characters with real-time community voting through Discord bot integration. Features drag-and-drop ranking, live updates, and voting analytics.",
+    objectives: [
+      "Create an intuitive drag-and-drop tierlist interface",
+      "Integrate real-time Discord bot for community voting",
+      "Implement live updates without page refresh",
+      "Build analytics dashboard for voting patterns"
+    ],
+    features: [
+      {
+        title: "Drag & Drop Interface",
+        description: "Intuitive ranking system with smooth animations"
+      },
+      {
+        title: "Discord Integration",
+        description: "Real-time voting through Discord bot commands"
+      },
+      {
+        title: "Live Updates",
+        description: "Instant tierlist updates as votes are cast"
+      },
+      {
+        title: "Analytics Dashboard",
+        description: "Detailed insights into community voting patterns"
+      }
+    ],
+    results: "Engaged over 5,000 community members with 85% participation rate. Reduced voting time by 60% compared to traditional polling methods. Maintained 99.5% uptime during peak voting periods.",
+    liveLink: "https://hybridtierlist.vercel.app/"
   }
 ];
 
